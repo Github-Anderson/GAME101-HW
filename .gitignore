@@ -1,0 +1,14 @@
+# Ignore the build directory
+build/
+
+# Ignore the .vscode directory
+.vscode/
+
+# Ignore all .DS_Store files
+.DS_Store
+
+# Ignore code counter directory
+.VSCodeCounter/
+
+# Ignore .pdf
+*.pdf

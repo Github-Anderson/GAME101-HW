@@ -51,3 +51,9 @@
 [binary-converted.png](hw5/image/binary-converted.png)
 
 ![](hw5/image/binary-converted.png)
+
+## hw6
+
+[binary-converted.png](hw6/image/binary-converted.png)
+
+![](hw6/image/binary-converted.png)

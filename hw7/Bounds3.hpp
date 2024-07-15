@@ -81,7 +81,29 @@ inline bool Bounds3::IntersectP(const Ray& ray, const Vector3f& invDir,
   // invDir: ray direction(x,y,z), invDir=(1.0/x,1.0/y,1.0/z), use this because
   // Multiply is faster that Division dirIsNeg: ray direction(x,y,z),
   // dirIsNeg=[int(x>0),int(y>0),int(z>0)], use this to simplify your logic
-  // TODO test if ray bound intersects
+  
+  // TODO: test if ray bound intersects
+
+  float tMin = (dirIsNeg[0] ? (pMin.x - ray.origin.x) : (pMax.x - ray.origin.x)) * invDir.x;
+  float tMax = (dirIsNeg[0] ? (pMax.x - ray.origin.x) : (pMin.x - ray.origin.x)) * invDir.x;
+
+  float tyMin = (dirIsNeg[1] ? (pMin.y - ray.origin.y) : (pMax.y - ray.origin.y)) * invDir.y;
+  float tyMax = (dirIsNeg[1] ? (pMax.y - ray.origin.y) : (pMin.y - ray.origin.y)) * invDir.y;
+
+  if ((tMin > tyMax) || (tMax < tyMin)) return false;
+  
+  if (tyMin > tMin) tMin = tyMin;
+  if (tyMax < tMax) tMax = tyMax;
+
+  float tzMin = (dirIsNeg[2] ? (pMin.z - ray.origin.z) : (pMax.z - ray.origin.z)) * invDir.z;
+  float tzMax = (dirIsNeg[2] ? (pMax.z - ray.origin.z) : (pMin.z - ray.origin.z)) * invDir.z;
+  
+  if ((tMin > tzMax) || (tMax < tzMin)) return false;
+
+  if (tzMin > tMin) tMin = tzMin;
+  if (tzMax < tMax) tMax = tzMax;
+
+  return (tMax >= 0) && (tMax >= tMin);
 }
 
 inline Bounds3 Union(const Bounds3& b1, const Bounds3& b2) {

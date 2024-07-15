@@ -99,7 +99,31 @@ Intersection BVHAccel::Intersect(const Ray& ray) const {
 
 Intersection BVHAccel::getIntersection(BVHBuildNode* node,
                                        const Ray& ray) const {
-  // TODO Traverse the BVH to find intersection
+  // TODO: Traverse the BVH to find intersection
+  Intersection inter;
+
+  if (!node->bounds.IntersectP(ray, ray.direction_inv, 
+                              {int(ray.direction.x > 0), 
+                               int(ray.direction.y > 0), 
+                               int(ray.direction.z > 0)})) {
+    return inter;
+  }
+
+  if (node->left == nullptr && node->right == nullptr) {
+    return node->object->getIntersection(ray);
+  }
+
+  Intersection left, right;
+  if (node->left) left = getIntersection(node->left, ray);
+  if (node->right) right = getIntersection(node->right, ray);
+  
+  if (left.happened) {
+    if (right.happened) {
+      return (left.distance < right.distance) ? left : right;
+    }
+    return left;
+  }
+  return right;
 }
 
 void BVHAccel::getSample(BVHBuildNode* node, float p, Intersection& pos,

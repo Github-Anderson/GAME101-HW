@@ -27,4 +27,5 @@ struct Intersection {
   Object* obj;
   Material* m;
 };
+
 #endif  // RAYTRACING_INTERSECTION_H

@@ -36,6 +36,7 @@ class Scene {
   BVHAccel *bvh;
   void buildBVH();
   Vector3f castRay(const Ray &ray, int depth) const;
+  Vector3f shade(Intersection& hit_obj, Vector3f wo) const;
   void sampleLight(Intersection &pos, float &pdf) const;
   bool trace(const Ray &ray, const std::vector<Object *> &objects, float &tNear,
              uint32_t &index, Object **hitObject);

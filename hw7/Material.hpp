@@ -6,6 +6,7 @@
 #define RAYTRACING_MATERIAL_H
 
 #include "Vector.hpp"
+#include "global.hpp"
 
 enum MaterialType { DIFFUSE };
 
@@ -28,8 +29,7 @@ class Material {
   //
   // If the ray is inside, you need to invert the refractive indices and negate
   // the normal N
-  Vector3f refract(const Vector3f &I, const Vector3f &N,
-                   const float &ior) const {
+  Vector3f refract(const Vector3f &I, const Vector3f &N, const float &ior) const {
     float cosi = clamp(-1, 1, dotProduct(I, N));
     float etai = 1, etat = ior;
     Vector3f n = N;
@@ -123,7 +123,7 @@ Material::Material(MaterialType t, Vector3f e) {
 }
 
 MaterialType Material::getType() { return m_type; }
-/// Vector3f Material::getColor(){return m_color;}
+//  Vector3f Material::getColor(){ return m_color; }
 Vector3f Material::getEmission() { return m_emission; }
 bool Material::hasEmission() {
   if (m_emission.norm() > EPSILON)

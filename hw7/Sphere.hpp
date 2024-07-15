@@ -71,9 +71,10 @@ class Sphere : public Object {
     N = normalize(P - center);
   }
 
-  Vector3f evalDiffuseColor(const Vector2f &st) const {
-    // return m->getColor();
-  }
+  // Vector3f evalDiffuseColor(const Vector2f &st) const {
+  //   return m->getColor();
+  // }
+  
   Bounds3 getBounds() {
     return Bounds3(
         Vector3f(center.x - radius, center.y - radius, center.z - radius),

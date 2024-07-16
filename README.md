@@ -57,3 +57,13 @@
 [binary-converted.png](hw6/image/binary-converted.png)
 
 ![](hw6/image/binary-converted.png)
+
+## hw7
+
+[binary-spp16.png](hw7/image/binary-spp16.png)
+
+![](hw7/image/binary-spp16.png)
+
+[binary-spp1024.png](hw7/image/binary-spp1024.png)
+
+![](hw7/image/binary-spp1024.png)

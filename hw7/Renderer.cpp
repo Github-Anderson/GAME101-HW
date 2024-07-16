@@ -14,7 +14,7 @@
 
 inline float deg2rad(const float& deg) { return deg * M_PI / 180.0; }
 
-const float EPSILON = 0.001f;
+const float EPSILON = 0.00001f;
 
 // The main render function. This where we iterate over all pixels in the image,
 // generate primary rays and cast these rays into the scene. The content of the

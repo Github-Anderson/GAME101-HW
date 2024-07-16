@@ -67,3 +67,7 @@
 [binary-spp1024.png](hw7/image/binary-spp1024.png)
 
 ![](hw7/image/binary-spp1024.png)
+
+[binary-blender.png](hw7/image/binary-blender.png)
+
+![](hw7/image/binary-blender.png)

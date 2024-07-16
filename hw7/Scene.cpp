@@ -53,9 +53,9 @@ bool Scene::trace(const Ray &ray, const std::vector<Object *> &objects,
 // Implementation of Path Tracing
 Vector3f Scene::castRay(const Ray &ray, int depth) const {
   // TODO: Implement Path Tracing Algorithm here
-  // if (depth > maxDepth) {
-  //   return Vector3f(0.0f);
-  // }
+  if (depth > maxDepth) {
+    return Vector3f(0.0f);
+  }
 
   Intersection inter = intersect(ray);
   if (!inter.happened) {
